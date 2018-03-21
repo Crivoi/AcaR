@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="surveyFormStyle.css">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link rel="stylesheet" type="text/css" href="./public/ionicons-2.0.1/css/ionicons.css">
+    <title>SurveyForm</title>
+</head>
+
+<body>
+    <header class="headerCls">
+        <a href="#">
+            <img class="image" src="./public/sigla_fullsize.png" alt="ACAR Logo" height="50px">
+        </a>
+        <div class="left-buttons">
+            <button onclick="window.location.href='./surveyPage.html'" class="home-button tooltip">
+                <i class="only-icon-button ion ion-ios-list"></i>
+                <span class="tooltiptext">Home</span>
+            </button>
+            <button onclick="window.location.href='./index.html'" class="about-button tooltip">
+                <i class="only-icon-button ion ion-ios-lightbulb-outline"></i>
+                <span class="tooltiptext">About</span>
+            </button>
+        </div>
+        <div class="center-buttons">
+            <div class="dropdown">
+                <button href="#" class="center-buttons-obj">
+                    <i class="ion ion-chevron-down"></i>Facultate</button>
+                <nav class="dropdown-content">
+                    <label>
+                        <input type="checkbox">Informatica</label>
+                    <br>
+                    <label>
+                        <input type="checkbox">Geografie</label>
+                    <br>
+                    <label>
+                        <input type="checkbox">Matematica</label>
+                    <br>
+                </nav>
+            </div>
+            <div class="dropdown">
+                <button href="#" class="center-buttons-obj">
+                    <i class="ion ion-chevron-down"></i>Materie</button>
+                <nav class="dropdown-content">
+                    <label>
+                        <input type="checkbox">Informatica</label>
+                    <br>
+                    <label>
+                        <input type="checkbox">Geografie</label>
+                    <br>
+                    <label>
+                        <input type="checkbox">Matematica</label>
+                    <br>
+                </nav>
+            </div>
+            <div class="dropdown">
+                <button href="#" class="center-buttons-obj">
+                    <i class="ion ion-chevron-down"></i>Profesor</button>
+                <nav class="dropdown-content">
+                    <label>
+                        <input type="checkbox">Patrut</label>
+                    <br>
+                    <label>
+                        <input type="checkbox">Ciobaca</label>
+                    <br>
+                    <label>
+                        <input type="checkbox">Tiplea</label>
+                    <br>
+                </nav>
+            </div>
+        </div>
+        <div class="right-buttons">
+            <button onclick="window.location.href='./surveyForm.html'" class="survey-button">
+                <i class="ion ion-chatbox-working"></i>
+            </button>
+            <button onclick="window.location.href='./login.html'" class="logIn-button">Log In</button>
+        </div>
+    </header><br><br><br>
+    <h1>Here you can introduce your review</h1>
+    <br/>
+    <form>
+        <p>Introduceti Facultatea</p>
+        <input type="text" maxlength="50">
+        <br/>
+        <p>Introduceti materia</p>
+        <input type="text" maxlength="25">
+        <br/>
+        <p>Introduceti Profesorul</p>
+        <input type="text" maxlength="25">
+        <br/>
+        <p>Introduceti review-ul</p>
+        <input type="text" id="review" maxlength="256">
+        <br/>
+        <button>Submitt</button>
+    </form>
+</body>
+
+</html>
