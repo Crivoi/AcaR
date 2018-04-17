@@ -1,0 +1,80 @@
+body{
+    background-image:url("public/fon_svet_polosy_pyatna_odnotonnyy_43981_1600x900.jpg");
+    background-size:cover;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+.nume{
+    position:absolute;
+    margin-top:40px;
+    margin-left:525px;
+    font-size:24px;
+}
+
+.facultate{
+    position:absolute;
+    margin-top:205px;
+    margin-left:505px;
+    font-size:15px;
+}
+
+.an{
+    position:absolute;
+    margin-top:210px;
+    margin-left:580px;
+    font-size:15px;
+}
+
+.id-persoana{
+    position:absolute;
+    margin-top:35px;
+    margin-left:540px;
+    font-size:15px;
+}
+
+.email{
+    position:absolute;
+    margin-top:50px;
+    margin-left:495px;
+    font-size:20px;
+}
+
+.profile-card{
+    background-color:rgba(255, 255, 255,0.50);
+    border-radius:10px;
+    height: 410px;
+    width: 810px;
+    margin-top: 170px;
+    margin-left:330px;
+}
+
+.profile-image{
+    position:absolute;
+    top:168px;
+    height: 413px;
+    width: 413px;
+    border-radius:10px;
+}
+
+.send-message{
+      position:absolute;
+      margin-top:200px;
+      margin-left:545px;
+      border:none;
+      border-radius:30px;
+      background-color:navy;
+      color:white;
+      padding: 15px 32px;
+      display: inline-block;
+      font-size: 16px;
+
+}
+
+.send-message:hover{
+  border:none;
+  border-radius:30px;
+  text-shadow: 0 1px grey;
+  background-color: rgb(8, 8, 165);
+}
