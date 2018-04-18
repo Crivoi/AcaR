@@ -3,6 +3,9 @@ body{
     background-size:cover;
     font-family: 'Open Sans', sans-serif;
 }
+
+
+
 .sigla{
     margin-left: 90%;
     width: 90px;
@@ -64,3 +67,16 @@ body{
   text-shadow: 0 1px grey;
   background-color: rgb(8, 8, 165);
   }
+
+  @media only screen and (max-width:900px){
+    .login-card{
+      margin-top:2%;
+      margin-left:2%;
+      width: 275px;
+      height:250px;
+    }
+    .sigla{
+      margin-left: 79%;
+      width: 90px;
+  }
+   }
