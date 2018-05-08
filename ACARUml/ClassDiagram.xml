@@ -1,0 +1,49 @@
+<diagram program="umletino" version="14.2"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>102</x><y>80</y><w>210</w><h>190</h></coordinates><panel_attributes>Add Survey
+--
++recieve_info_survey()
++send_survey()
+--
+Responsibilities
+-- Primeste informatii de la baza de 
+date legat de suveyurile pe care are 
+voie sa le creeze un anumit utilizator
+-- Trimite surveyul in baza de date 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>202</x><y>390</y><w>210</w><h>190</h></coordinates><panel_attributes>Log in
+--
++log_in()
++log_out()
++verify_userPass()
+--
+Responsibilities
+-- Aceasta clasa este responsabila 
+de logare si de delogare
+--Tot aici la logare se verifica userul
+si parola pentru a fi corecte
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>582</x><y>390</y><w>210</w><h>190</h></coordinates><panel_attributes>Register
+--
++create_accout()
+--
+Responsibilities
+-- Aceasta clasa este responsabila 
+de crearea unui cont nou pe platforma</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>392</x><y>80</y><w>210</w><h>190</h></coordinates><panel_attributes>Main page
+--
++recieve_facebook_Survey()
++recieve_twitter_Survey()
++recieve_last_Survey()
++recieve_last_updates()
+--
+Responsibilities
+-- Afiseaza cele mai recente surveyuri
+adaugate
+--Selectarea de anumite constrangeri
+pentru vizualizarea anumitor surveyuri</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>742</x><y>80</y><w>210</w><h>190</h></coordinates><panel_attributes>Search Survey
+--
+search_Survey()
+send_constraints()
+recieve_Survey()
+--
+Responsibilities
+-- Cautarea unui anumit survey dupa
+faculatate spre exemplu
+--Primeste surveyuri dupa criteriile 
+introduse</panel_attributes><additional_attributes></additional_attributes></element></diagram>
