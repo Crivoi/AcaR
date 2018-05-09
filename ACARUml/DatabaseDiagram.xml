@@ -1,0 +1,65 @@
+<diagram program="umletino" version="14.2"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>20</x><y>80</y><w>210</w><h>140</h></coordinates><panel_attributes>_Surveryuri_adaugate_
+--
+id_user=long int
+Name=varchar2(20)
+Date=date
+External_link=varchar2(20)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>80</y><w>210</w><h>200</h></coordinates><panel_attributes>_Users_
+--
+id = long int
+id_faculty=long int
+Username=varchar2(20)
+Password=varchar2(20)
+Email=varchar2(20)
+ProfileName=varchar2(20)
+Created=date
+Faculty=varchar2(20)
+Specialization=varchar2(20)
+YearSpecialization=int 
+DateOfBirth=date
+
+
+
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>730</x><y>80</y><w>210</w><h>120</h></coordinates><panel_attributes>_Admins_
+--
+id = long int
+Username=varchar2(20)
+Password=varchar2(20)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>90</y><w>210</w><h>50</h></coordinates><panel_attributes>id_user=id
+m1=1
+m2=0..n</panel_attributes><additional_attributes>10;20;190;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>20</x><y>320</y><w>210</w><h>120</h></coordinates><panel_attributes>_Facultati_
+--
+id_faculty = long int
+faculty_name=varchar2(20)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>20</x><y>520</y><w>210</w><h>120</h></coordinates><panel_attributes>_Specialization_
+--
+id_faculty = long int
+id_specialization=long int
+specialization=varchar2(20)
+years=int
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>780</x><y>530</y><w>210</w><h>120</h></coordinates><panel_attributes>_Profs_
+--
+id_prof = long int
+Prof_name=varchar2(20)
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>210</x><y>430</y><w>140</w><h>110</h></coordinates><panel_attributes>id_faculty=id_faculty
+m1=1
+m2=1..n</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>540</y><w>220</w><h>50</h></coordinates><panel_attributes>id_specialization=id_specialization
+m1=1..n
+m2=1</panel_attributes><additional_attributes>200;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>530</y><w>210</w><h>120</h></coordinates><panel_attributes>_Courses_
+--
+id_specialization = long int
+course_name=varchar2(20)
+credits=int
+semester=int
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>620</x><y>540</y><w>180</w><h>50</h></coordinates><panel_attributes>id_specialization=id_prof
+m1=1..n
+m2=1</panel_attributes><additional_attributes>160;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>270</y><w>310</w><h>150</h></coordinates><panel_attributes>id_faculty=id_faculty
+m1=1..n
+m2=0..n</panel_attributes><additional_attributes>10;120;270;120;270;10</additional_attributes></element></diagram>
