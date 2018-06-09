@@ -1,0 +1,328 @@
+body{
+    width: 100%;
+    height: 100%;
+    background: #DAEAF1;
+    margin: 0;
+}
+
+
+.headerCls {
+    width: 100%;
+    background-color: white;
+    left: 0;
+    top: 0;
+    border-bottom: 1px solid #d8d8d8;
+    height: 70px;
+}
+
+.center-buttons {
+    display: inline-block;
+    width: 300px;
+    margin: auto;
+    position: absolute;
+    margin-left: 30px;
+}
+
+.center-buttons-obj {
+    border: 1px solid #0095DA;
+    border-radius: 3px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    background-color: white;
+}
+
+.center-buttons-obj:hover {
+    background-color: #001f3f;
+    color: white;
+}
+
+.center-buttons-obj:active {
+    background-color: #0055aa;
+    text-decoration: none;
+}
+
+.survey-button {
+    border: 1px solid #d8d8d8;
+    color: black;
+    border-radius: 3px;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.ion-chatbox-working:after {
+    content: "My Surveys";
+    color: black;
+    padding-left: 5px;
+}
+
+.survey-button:hover {
+    background-color: #001f3f;
+    color: white;
+    text-decoration: none;
+}
+
+.survey-button:active {
+    background-color: #0055aa;
+    color: white;
+}
+
+.logIn-button {
+    color: black;
+    height: 70px;
+    padding: 0px 20px;
+    background-color: white;
+    border: none;
+    border-left: 1px solid #d8d8d8;
+}
+
+.logIn-button:hover {
+    background-color: #001f3f;
+    color: white;
+}
+
+.logIn-button:active {
+    background-color: #0055aa;
+    color: white;
+}
+
+.headerCls .image {
+    padding: 5px;
+    margin: 10px 10px;
+}
+
+.right-buttons {
+    float: right;
+}
+
+.left-buttons {
+    display: inline-block;
+    width: 90px;
+    margin: auto;
+    position: absolute;
+    top: 20px;
+}
+
+.home-button {
+    border: none;
+    border-radius: 3px;
+    padding: 3px;
+    background-color: white;
+}
+
+.home-button:hover,
+.about-button:hover {
+    background-color: #001f3f;
+    color: white;
+}
+
+.about-button {
+    border: none;
+    border-radius: 3px;
+    padding: 3px;
+    background-color: white;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #001f3f;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.page-description {
+    text-align: center;
+    top: 35%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.ion {
+    padding: 5px;
+    color: #0095DA;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button {
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.only-icon-button {
+    font-size: 20px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 80px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 500!important;
+    top: 125%;
+    left: 115%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.subs {
+    left: -45px;
+    position: relative;
+    top: 0px;
+}
+
+.hassubs:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transition: ease-in 0.35s;
+    -moz-transition: ease-in 0.35s;
+    -webkit-transition: ease-in 0.35s;
+}
+
+.hassubs .dropdown .subs {
+    left: 25px;
+    position: relative;
+    width: 165px;
+    top: 0px;
+}
+
+.hassubs .dropdown {
+    position: absolute;
+    width: 150px;
+    left: 120px;
+    top: 0px;
+    opacity: 0;
+    visibility: hidden;
+    transition: ease-out 0.35s;
+    -moz-transition: ease-out 0.35s;
+    -webkit-transition: ease-out 0.35s;
+}
+
+input {
+    margin: 10px 10px;
+}
+
+label{
+  cursor: pointer;
+}
+
+@media (max-width: 767pxx) {
+    .dropdown {
+        display: block;
+    }
+    .headerCls {
+        height: 100px;
+    }
+    .center-buttons {
+        top: -10px;
+        width: 120px;
+        left: 33%;
+    }
+    .center-buttons-obj {
+        border-radius: 0px;
+        text-align: left;
+        width: 120px;
+    }
+    .dropdown:first-child .center-buttons-obj {
+        border-radius: 5px 5px 0 0;
+    }
+    .dropdown:last-child .center-buttons-obj {
+        border-radius: 0 0 5px 5px;
+    }
+    .ion-chatbox-working:after {
+        content: "";
+        padding: 0;
+    }
+    .ion.ion-chatbox-working {
+        margin-top: 20px;
+        font-size: 25px;
+    }
+    .survey-button {
+        padding: 5px;
+        background-color: white;
+        border: none;
+    }
+}
+
+.page{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    position: fixed;
+    top: 71px;
+    width: 70%;
+    height: 100%;
+    margin-left: 15%;
+    background: #A9CAD8;
+    overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 2px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #07445E; 
+    border-radius: 10px;
+}   
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #00070A; 
+}
