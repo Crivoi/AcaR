@@ -16,14 +16,17 @@
           <button href="#" class="center-buttons-obj">
             <i class="ion ion-chevron-down"></i>Facultate</button>
           <nav class="dropdown-content">
-            <label>
-              <input type="checkbox">Informatica</label>
+          <label>
+              <input name="facultate" type="radio" value="%">Toate</label>
             <br>
             <label>
-              <input type="checkbox">Geografie</label>
+              <input name="facultate" type="radio" value="info">Informatica</label>
             <br>
             <label>
-              <input type="checkbox">Matematica</label>
+              <input name="facultate" type="radio" value="geo">Geografie</label>
+            <br>
+            <label>
+              <input name="facultate" type="radio" value="mate">Matematica</label>
             <br>
           </nav>
         </div>
