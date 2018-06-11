@@ -12,7 +12,7 @@ function Inregistrare() {
 		switch (xhr.status) {
 			case 200:
 				console.log("Succ " + xhr.response);
-				if (xhr.response == 0) {
+				if (xhr.response == 1) {
 					alert("Esti inregistrat deja");
 					document.getElementById('username').value = '';
 					console.log("esti pe if-ul pentru");
@@ -95,21 +95,39 @@ function filter() {
 		}
 	}
 	console.log(facultate);
-
-
 	let xhr = new XMLHttpRequest();
 
 	xhr.open("POST", "http://localhost:81/petrimonials/public/GetSurveys/GetSurveysBy");
 
+
+}
+
+function Logare() {
+	var user = document.getElementById("user").value;
+	var parola = document.getElementById("parola").value;
+
+	let xhr = new XMLHttpRequest();
+
+	xhr.open("POST", "http://localhost:81/ACAR/public/Logare/login");
+
 	xhr.addEventListener("load", function loadCallback() {
 		switch (xhr.status) {
 			case 200:
-				let object = JSON.parse(xhr.response);
-				putOnScreen(object);
-				console.log(object.Facultate);
+				console.log("Success, te-ai conectat");
+				console.log("*" + xhr.response.trim() + "*");
+				console.log(user);
+				if (xhr.response.trim() == user) {
+					console.log("login reusit");
+					window.location.assign('http://localhost:81/ACAR/public/welcome.php');
+				} else {
+					console.log("Username sau parola incorecte");
+					alert("Username incorect");
+					document.getElementById("user").value = '';
+				}
+
 				break;
 			case 404:
-				console.log("Oups! Not found");
+				console.log("Oops! Not found");
 				break;
 		}
 	});
@@ -117,80 +135,54 @@ function filter() {
 	xhr.addEventListener("error", function errorCallback() {
 		console.log("Network error");
 	});
-	obj= {
-		facultate: `${facultate}`
-	}
-	xhr.send(JSON.stringify(obj));
 
-};
+	let payload = {
+		user: `${user}`,
+		parola: `${parola}`
+	}
+	xhr.send(JSON.stringify(payload));
+}
+
+function adaugaSurvey() {
+	var facultate = document.getElementById("facultate-id").value;
+	var an = document.getElementById("an-id").value;
+	var semestru = document.getElementById("semestru-id").value;
+	var materie = document.getElementById("materie-id").value;
+	var prof = document.getElementById("prof-id").value;
+	var review = document.getElementById("review-id").value;
+
+	let xhr = new XMLHttpRequest();
+
+	xhr.open("POST", "http://localhost:81/ACAR/public/PostSurvey/verificaSurvey");
+
+	xhr.addEventListener("load", function loadCallback() {
+		switch (xhr.status) {
+			case 200:
+				console.log("survey adaugat cu succes" + xhr.response);
+			case 404:
+				console.log("404 not found");
+				break;
+		}
+	});
+
+	xhr.addEventListener("error", function errorCallback() {
+		console.log("Network error");
+	});
+	let payload = {
+		facultate: `${facultate}`,
+		an: `${an}`,
+		semestru: `${semestru}`,
+		materie: `${materie}`,
+		prof: `${prof}`,
+		review: `${review}`
+	}
+
+	xhr.send(JSON.stringify(payload));
+}
+
 
 
 function putOnScreen(obj) {
-	let lim = 0;
-	if (obj.length % 2 == 0) {
-		lim = obj.length / 2;
-	} else {
-		lim = (obj.length + 1) / 2;
-	}
 
-	let inc1 = 0;
-	let inc2 = 0;
-	obj.slice(0, lim).forEach(function (elem) {
-
-		inc1 += 1;
-		let card = document.createElement("div");
-		card.classList.add("card");
-		let image = document.createElement("img");
-		image.classList.add("card-img");
-		image.src = "http://localhost:81/petrimonials/app/models/uploads/" + elem.path;
-		image.alt = "poza anunt";
-		let title = document.createElement("h2");
-		title.classList.add("card-title");
-		title.innerHTML = elem.nume_animal;
-		let content = document.createElement("div");
-		content.classList.add("card-content");
-		let paragraf = document.createElement("p");
-		paragraf.innerHTML = elem.descriere;
-		let link = document.createElement("a");
-		link.target = "_blank";
-		link.href = "localhost:81/petrimonials/public/Anunturi/get/" + elem.id;
-		link.innerHTML = "Afla mai mult.";
-		content.appendChild(paragraf);
-		content.appendChild(link);
-		card.appendChild(image);
-		card.appendChild(title);
-		card.appendChild(content);
-		let k = document.getElementById("main1");
-		if (typeof k !== "undefined") { k.appendChild(card); }
-	});
-
-	obj.slice(lim, obj.length).forEach(function (elem) {
-
-		inc2 += 1;
-
-		let card = document.createElement("div");
-		card.classList.add("card");
-		let image = document.createElement("img");
-		image.classList.add("card-img");
-		image.src = "http://localhost:81/petrimonials/app/models/uploads/" + elem.path;
-		image.alt = "poza anunt";
-		let title = document.createElement("h2");
-		title.classList.add("card-title");
-		title.innerHTML = elem.nume_animal;
-		let content = document.createElement("div");
-		content.classList.add("card-content");
-		let paragraf = document.createElement("p");
-		paragraf.innerHTML = elem.descriere;
-		let link = document.createElement("a");
-		link.target = "_blank";
-		link.href = "localhost:81/petrimonials/public/Anunturi/get/" + elem.id;
-		link.innerHTML = "Afla mai mult.";
-		content.appendChild(paragraf);
-		content.appendChild(link);
-		card.appendChild(image);
-		card.appendChild(title);
-		card.appendChild(content);
-		let k = document.getElementById("main2");
-		if (typeof k !== "undefined") { k.appendChild(card); }
-	});
 };
+

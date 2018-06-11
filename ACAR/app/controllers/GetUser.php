@@ -13,7 +13,7 @@
  		$jsonData = json_decode($jsonData);
  		
  		$user = $jsonData->username;
- 		$result = $modelcon -> getUser($user);
+ 		$result = $modelcon->getUser($user);
 
  		echo $result;
 
