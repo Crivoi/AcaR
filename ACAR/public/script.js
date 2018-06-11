@@ -73,21 +73,20 @@ function Inregistrare() {
 
 
 function filter() {
-	let facultate;
-	let fac
-	let profesor;
-	let materie;
+	let facultate = "%";
+	let profesor = "%";
+	let materie = "%";
 
-	let radios = document.getElementById("locatie").value;
+	// let radios = document.getElementsByName("facultate");
 
-	for (var i = 0, length = radios.length; i < length; i++) {
-		if (radios[i].checked) {
-			tip = radios[i].value;
-			break;
-		}
-	}
+	// for (var i = 0, length = radios.length; i < length; i++) {
+	// 	if (radios[i].checked) {
+	// 		tip = radios[i].value;
+	// 		break;
+	// 	}
+	// }
 
-	radios = document.getElementsByName('facultate').value;
+	radios = document.getElementsByName('facultate');
 	for (var i = 0, length = radios.length; i < length; i++) {
 		if (radios[i].checked) {
 			facultate = radios[i].value;
@@ -95,12 +94,36 @@ function filter() {
 		}
 	}
 	console.log(facultate);
+
+
 	let xhr = new XMLHttpRequest();
 
-	xhr.open("POST", "http://localhost:81/petrimonials/public/GetSurveys/GetSurveysBy");
+	xhr.open("POST", "http://localhost:81/ACAR/public/GetSurveys/GetSurveysBy");
 
+	xhr.addEventListener("load", function loadCallback() {
+		console.log(xhr.response);
+		switch (xhr.status) {
+			case 200:
+				let object = JSON.parse(xhr.response);
+				console.log(object);
+				putOnScreen(object);
+				
+				break;
+			case 404:
+				console.log("Oups! Not found");
+				break;
+		}
+	});
 
-}
+	xhr.addEventListener("error", function errorCallback() {
+		console.log("Network error");
+	});
+	obj= {
+		facultate: `${facultate}`
+	}
+	xhr.send(JSON.stringify(obj));
+
+};
 
 function Logare() {
 	var user = document.getElementById("user").value;
@@ -184,5 +207,37 @@ function adaugaSurvey() {
 
 function putOnScreen(obj) {
 
+	obj.forEach(function(elem){
+		let card = document.createElement("div");
+		  card.classList.add("card");
+		  
+          let title = document.createElement("h3");
+          title.classList.add("card-name");
+		  title.innerHTML = elem.Materie;
+		  
+          let title2 = document.createElement("h4");
+		  title2.classList.add("card-survey-name");
+		  title2.innerHTML = elem.Profesor;
+
+		  let descriere = document.createElement("p");
+		  descriere.classList.add("card-description");
+		  descriere.innerHTML = elem.Review;
+
+		  let button = document.createElement("a");
+		  button.classList.add("card-link");
+		  button.innerHTML = "Open Survey";
+		  button.href = "#modal-one";
+		  
+          card.appendChild(title);
+          card.appendChild(title2);
+		  card.appendChild(descriere);
+		  card.appendChild(button);
+
+
+          let k = document.getElementById("main");
+          if(typeof k !=="undefined")
+            {k.appendChild(card);}
+	})
 };
 
+window.onload=filter();

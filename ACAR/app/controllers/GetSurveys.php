@@ -8,12 +8,12 @@
         $modelcon = $this->model('Model');
 
         $jsonData = file_get_contents('php://input');
-         $jsonData = json_decode($jsonData);
-         $facultate = $jsonData->facultate;
+        $jsonData = json_decode($jsonData);
+        $facultate = $jsonData->facultate;
          
-         
+        echo json_encode($modelcon->getFilteredSurveys($facultate));
 
         http_response_code(200);
     }
-
+ }
 ?>

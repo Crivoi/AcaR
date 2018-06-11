@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="./public/ionicons-2.0.1/css/ionicons.css">
     <link rel="stylesheet" type="text/css" href="./indexStyle.css">
     <link rel="stylesheet" type="text/css" href="./public/ionicons-2.0.1/css/ionicons.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -17,7 +18,7 @@
         <?php
             require_once('menu.php');
         ?>
-        <div class="container">
+        <div class="container" id="main">
             <div class = "card">
                 <h3 class = "card-name">Card1</h3>
                 <hr>

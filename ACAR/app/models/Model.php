@@ -64,5 +64,19 @@
 			$result=mysqli_query($conn, "INSERT INTO surveys VALUES ('".$facultate."', '".$an."', '".$semestru."', '".$materie."', '".$prof."', '".$review."')");
 			return $result;
 		}
+
+		public function getFilteredSurveys($facultate){
+			global $conn;
+			$stmt = $conn->prepare("SELECT * FROM surveys where facultate like '%" . $facultate ."%'");
+			
+			if (false === $stmt ) {
+		        die('prepare() failed: ' . htmlspecialchars($conn->error));
+		    }
+		    $stmt->execute();
+		    $result = $stmt -> get_result();
+		    $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+		    mysqli_free_result($result);
+		    return $rows;
+		}
 	}
 ?>

@@ -17,7 +17,7 @@
             <i class="ion ion-chevron-down"></i>Facultate</button>
           <nav class="dropdown-content">
           <label>
-              <input name="facultate" type="radio" value="%">Toate</label>
+              <input name="facultate" type="radio" value="%" checked>Toate</label>
             <br>
             <label>
               <input name="facultate" type="radio" value="info">Informatica</label>
