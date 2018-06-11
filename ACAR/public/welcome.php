@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
 
+<html>
 <head>
   <title>ACAR - Academic Recommender</title>
   <meta charset="utf-8">
