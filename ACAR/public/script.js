@@ -7,7 +7,6 @@ function Inregistrare(){
    let xhr = new XMLHttpRequest();
 
 		xhr.open("POST", "http://localhost:81/ACAR/public/GetUser/verificaUser");
-		//xhr.open("POST", "http://localhost:80/ACAR/app/controllers/GetUser/verificaUser");
 
 		xhr.addEventListener("load", function loadCallback() {
 		    switch (xhr.status) {
