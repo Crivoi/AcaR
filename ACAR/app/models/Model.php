@@ -31,17 +31,17 @@
 		    $result = $stmt -> get_result();
 		    $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC);
 		    if ($rows == false){
-		    	return 1;
+		    	return 0;
 		    }
 		    else {
-		    	return 0;
+		    	return 1;
 		    }
 		}
 
-		public function getParola($password_user){
+		public function getParola($parola){
 			global $conn;
 
-		    $stmt = $conn->prepare("SELECT parola FROM users where parola like '%" . $password_user . "' ;");
+		    $stmt = $conn->prepare("SELECT parola FROM users where parola like '%".$parola . "' ;");
 
 		    if (false === $stmt ) {
 		        die('prepare() failed: ' . htmlspecialchars($conn->error));
@@ -51,13 +51,18 @@
 		    $result = $stmt -> get_result();
 		    $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC);
 		    if ($rows == false){
-		    	return 1;
+		    	return 0;
 		    }
 		    else {
-		    	return 0;
+		    	return 1;
 		    }
 		}
 
-		
+		public function insertSurvey($facultate, $an, $semestru, $materie, $prof, $review){
+			global $conn;
+
+			$result=mysqli_query($conn, "INSERT INTO surveys VALUES ('".$facultate."', '".$an."', '".$semestru."', '".$materie."', '".$prof."', '".$review."')");
+			return $result;
+		}
 	}
 ?>

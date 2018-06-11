@@ -13,24 +13,23 @@ session_start();
  		$jsonData = file_get_contents('php://input');
  		$jsonData = json_decode($jsonData);
 
- 		$email = $jsonData->email;
- 		$password = $jsonData->pass;
+ 		$user = $jsonData->user;
+ 		$parola = $jsonData->parola;
  		
- 		$resultemail = $modelcon->getEmail($email);
- 		$resultpassword = $modelcon->getParola($password);
+ 		$resultuser = $modelcon->getUser($user);
+		$resultpassword = $modelcon->getParola($parola);
 
- 		if ($resultemail == 0){
+ 		if ($resultuser == 1){
 
- 			if ($resultpassword == 0){
- 				$_SESSION['email'] = $email;
- 				echo $_SESSION['email'];
+ 			if ($resultpassword == 1){
+ 				$_SESSION['user'] = $user;
+ 				echo $_SESSION['user'];
  			} else {
  				echo "Parola incorecta";
  			}
  		} else {
- 			echo "Email incorect ";
+ 			echo "User incorect ";
  		}
-
  	}
 
  	public function delogin(){
@@ -40,9 +39,9 @@ session_start();
  		$jsonData = file_get_contents('php://input');
  		$jsonData = json_decode($jsonData);
  		
- 		unset($_SESSION['email']);
+ 		unset($_SESSION['user']);
  		session_destroy();
- 		echo "deLogin";
+ 		echo "delogin";
  	}
  }
 

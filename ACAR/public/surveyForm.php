@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="./indexStyle.css">
     <link rel="stylesheet" type="text/css" href="./public/ionicons-2.0.1/css/ionicons.css">
     <title>SurveyForm</title>
+    <script src = "script.js" defer></script>
 </head>
 
 <body>
@@ -19,29 +20,29 @@
     <br>
     <br>
     <br>
-    <h1>Here you can introduce your review</h1>
+    <h1>Here you can insert your review</h1>
     <br/>
     <form>
         <br>
         <p class="facultate">Introduceti Facultatea</p>
-        <input type="text" maxlength="50">
+        <input type="text" maxlength="50" id = "facultate-id">
         <br/>
         <p class="an">Introduceti Anul</p>
-        <input type="text" maxlength="50">
+        <input type="text" maxlength="50" id = "an-id">
         <br/>
         <p class="semestru">Introduceti Semestrul</p>
-        <input type="text" maxlength="50">
+        <input type="text" maxlength="50" id = "semestru-id">
         <br/>
         <p class="materie">Introduceti Materia</p>
-        <input type="text" maxlength="25">
+        <input type="text" maxlength="25" id = "materie-id">
         <br/>
         <p class="profesor">Introduceti Profesorul</p>
-        <input type="text" maxlength="25">
+        <input type="text" maxlength="25" id = "prof-id">
         <br/>
         <p class="review">Introduceti review-ul</p>
-        <textarea  id="subject" name="subject" placeholder="Scrie ceva.." style="height:200px"></textarea>
+        <textarea name="subject" style="height:100px" id = "review-id"></textarea>
         <br/>
-        <button class="submit">Submit</button>
+        <button type="button" class="submit" onclick="adaugaSurvey()" id = "submit-btn-id">Submit</button>
     </form>
 </body>
 

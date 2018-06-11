@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./loginStyle.css">
     <link rel="stylesheet" type="text/css" href="./public/ionicons-2.0.1/css/ionicons.css">
     <title>Log in</title>
+    <script src="script.js"></script>
 </head>
 <body>
     <img src="public\sigla_fullsize.png" class="sigla" alt="Sigla">
@@ -16,9 +17,9 @@
        <p>Welcome to our community</p>
       
     <form>
-      <input type="text" name="user"  placeholder="Username" required>
-      <input type="password" name="pass"  placeholder="Password" required><br>
-      <input type="submit" name="login" class="login-submit" value="login"><br>
+      <input type="text" name="user" id="user" placeholder="Username" required>
+      <input type="password" name="pass"  id="parola" placeholder="Password" required><br>
+      <input type="button" onclick="Logare()" name="login" class="login-submit" value="login"><br>
     </form>
   
     <div class="login-help">
