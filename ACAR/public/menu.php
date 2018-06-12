@@ -77,6 +77,6 @@
       <button onclick="window.location.href='./surveyForm.php'" class="survey-button">
         <i class="ion ion-chatbox-working"></i>
       </button>
-      <button onclick="window.location.href='./login.php'" class="logIn-button">Log In</button>
+      <button onclick="window.location.href='./login.php'" class="logIn-button">Log Out</button>
     </div>
   </header>

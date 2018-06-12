@@ -34,6 +34,7 @@ function Inregistrare() {
 							switch (xhr2.status) {
 								case 200:
 									console.log("Success, ai inserat in baza de date" + xhr2.response);
+									window.location.assign('http://localhost:81/ACAR/public/login.php');
 									break;
 								case 404:
 									console.log("Oups! Not found");
@@ -193,6 +194,7 @@ function adaugaSurvey() {
 		switch (xhr.status) {
 			case 200:
 				console.log("survey adaugat cu succes" + xhr.response);
+				window.location.assign('http://localhost:81/ACAR/public/surveyPage.php');
 			case 404:
 				console.log("404 not found");
 				break;
