@@ -10,8 +10,10 @@
         $jsonData = file_get_contents('php://input');
         $jsonData = json_decode($jsonData);
         $facultate = $jsonData->facultate;
-         
-        echo json_encode($modelcon->getFilteredSurveys($facultate));
+        $materie = $jsonData->materie;
+        $profesor = $jsonData->profesor;
+        
+        echo json_encode($modelcon->getFilteredSurveys($facultate, $materie, $profesor));
 
         http_response_code(200);
     }

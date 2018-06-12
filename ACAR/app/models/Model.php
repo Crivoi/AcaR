@@ -65,9 +65,9 @@
 			return $result;
 		}
 
-		public function getFilteredSurveys($facultate){
+		public function getFilteredSurveys($facultate, $materie, $profesor){
 			global $conn;
-			$stmt = $conn->prepare("SELECT * FROM surveys where facultate like '%" . $facultate ."%'");
+			$stmt = $conn->prepare("SELECT * FROM surveys where facultate like '%" . $facultate ."%' and materie like '%" . $materie . "%' and profesor like '%" .$profesor."%'");
 			
 			if (false === $stmt ) {
 		        die('prepare() failed: ' . htmlspecialchars($conn->error));

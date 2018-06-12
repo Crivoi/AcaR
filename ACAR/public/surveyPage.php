@@ -14,12 +14,12 @@
 </head>
 
 <body>
-    <div class="page">
+    <div class="page" id="main-page">
         <?php
             require_once('menu.php');
         ?>
         <div class="container" id="main">
-            <div class = "card">
+            <!-- <div class = "card">
                 <h3 class = "card-name">Card1</h3>
                 <hr>
                 <h4 class = "card-survey-name">Survey Name1</h4>
@@ -37,12 +37,13 @@
                 <hr>
                 <a href="#modal-one" class = "card-link">Openn Survey</a>
             </div>
-        </div>
+        </div> -->
+        
     </div>
 
     <div class="modal" id="modal-one" aria-hidden="true">
         <div class="modal-dialog">
-        <a href="#" class="normal-button-close" aria-hidden="true">×</a>
+        <a href="#" class="normal-button-close">×</a>
         <div class="card">
             <div class="card-container">
                 <div class="nume">⬛George Buhnici⬛</div>

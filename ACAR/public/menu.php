@@ -34,14 +34,17 @@
           <button href="#" class="center-buttons-obj">
             <i class="ion ion-chevron-down"></i>Materie</button>
           <nav class="dropdown-content">
-            <label>
-              <input type="checkbox">Informatica</label>
+          <label>
+              <input name="materie" type="radio" value="%" checked>Toate</label>
             <br>
             <label>
-              <input type="checkbox">Geografie</label>
+              <input name="materie" type="radio" value="info">Informatica</label>
             <br>
             <label>
-              <input type= "checkbox">Matematica</label>
+              <input name="materie" type="radio" value="geo">Geografie</label>
+            <br>
+            <label>
+              <input name="materie" type= "radio" value="mate">Matematica</label>
             <br>
           </nav>
         </div>
@@ -50,15 +53,23 @@
             <i class="ion ion-chevron-down"></i>Profesor</button>
           <nav class="dropdown-content">
             <label>
-              <input type="checkbox">Patrut</label>
+              <input name="profesor" type="radio" value="%" checked>Toate</label>
             <br>
             <label>
-              <input type="checkbox">Ciobaca</label>
+              <input name="profesor" type="radio" value"patrut">Patrut</label>
             <br>
             <label>
-              <input type="checkbox">Tiplea</label>
+              <input name="profesor" type="radio" value="cio">Ciobaca</label>
+            <br>
+            <label>
+              <input name="profesor" type="radio" value="tiplea">Tiplea</label>
             <br>
           </nav>
+        </div>
+        <div class="dropdown">
+          <button onclick="filter()" class="go-button center-buttons-obj">
+            Go >>>
+          </button>
         </div>
       </div>
     </div>

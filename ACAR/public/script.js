@@ -77,19 +77,28 @@ function filter() {
 	let profesor = "%";
 	let materie = "%";
 
-	// let radios = document.getElementsByName("facultate");
+	let radio = document.getElementsByName("materie");
 
-	// for (var i = 0, length = radios.length; i < length; i++) {
-	// 	if (radios[i].checked) {
-	// 		tip = radios[i].value;
-	// 		break;
-	// 	}
-	// }
+	for (var i = 0, length = radio.length; i < length; i++) {
+		if (radio[i].checked) {
+			materie = radio[i].value;
+			break;
+		}
+	}
 
-	radios = document.getElementsByName('facultate');
-	for (var i = 0, length = radios.length; i < length; i++) {
-		if (radios[i].checked) {
-			facultate = radios[i].value;
+	radio = document.getElementsByName("profesor");
+
+	for (var i = 0, length = radio.length; i < length; i++) {
+		if (radio[i].checked) {
+			profesor = radio[i].value;
+			break;
+		}
+	}
+
+	radio = document.getElementsByName('facultate');
+	for (var i = 0, length = radio.length; i < length; i++) {
+		if (radio[i].checked) {
+			facultate = radio[i].value;
 			break;
 		}
 	}
@@ -107,7 +116,7 @@ function filter() {
 				let object = JSON.parse(xhr.response);
 				console.log(object);
 				putOnScreen(object);
-				
+
 				break;
 			case 404:
 				console.log("Oups! Not found");
@@ -118,8 +127,10 @@ function filter() {
 	xhr.addEventListener("error", function errorCallback() {
 		console.log("Network error");
 	});
-	obj= {
-		facultate: `${facultate}`
+	obj = {
+		facultate: `${facultate}`,
+		materie: `${materie}`,
+		profesor: `${profesor}`
 	}
 	xhr.send(JSON.stringify(obj));
 
@@ -206,38 +217,99 @@ function adaugaSurvey() {
 
 
 function putOnScreen(obj) {
+	console.log("sunt aici");
+	let index = 0;
+	let main = document.getElementById("main");
+	if (typeof main !== "undefined")
+		main.innerHTML = '';
 
-	obj.forEach(function(elem){
+	obj.forEach(function (elem) {
+		index++;
 		let card = document.createElement("div");
-		  card.classList.add("card");
-		  
-          let title = document.createElement("h3");
-          title.classList.add("card-name");
-		  title.innerHTML = elem.Materie;
-		  
-          let title2 = document.createElement("h4");
-		  title2.classList.add("card-survey-name");
-		  title2.innerHTML = elem.Profesor;
+		card.classList.add("card");
 
-		  let descriere = document.createElement("p");
-		  descriere.classList.add("card-description");
-		  descriere.innerHTML = elem.Review;
+		let title = document.createElement("h3");
+		title.classList.add("card-name");
+		title.innerHTML = elem.Materie;
 
-		  let button = document.createElement("a");
-		  button.classList.add("card-link");
-		  button.innerHTML = "Open Survey";
-		  button.href = "#modal-one";
-		  
-          card.appendChild(title);
-          card.appendChild(title2);
-		  card.appendChild(descriere);
-		  card.appendChild(button);
+		let title2 = document.createElement("h4");
+		title2.classList.add("card-survey-name");
+		title2.innerHTML = elem.Profesor;
+
+		let descriere = document.createElement("p");
+		descriere.classList.add("card-description");
+		descriere.innerHTML = elem.Review;
+
+		let button = document.createElement("a");
+		button.classList.add("card-link");
+		button.innerHTML = "Open Survey";
+		button.href = "#modal" + index;
+
+		card.appendChild(title);
+		card.appendChild(title2);
+		card.appendChild(descriere);
+		card.appendChild(button);
+		main.appendChild(card);
 
 
-          let k = document.getElementById("main");
-          if(typeof k !=="undefined")
-            {k.appendChild(card);}
+		let bigDiv = document.createElement("div");
+		bigDiv.classList.add("modal");
+		bigDiv.id = "modal" + index;
+		bigDiv.setAttribute("aria-hidden", "true");
+
+		let secondDiv = document.createElement("div");
+		secondDiv.classList.add("modal-dialog");
+
+		let exit = document.createElement("a");
+		exit.classList.add("normal-button-close");
+		exit.href = "#";
+		exit.innerHTML="x";
+
+		let thirdDiv = document.createElement("div");
+		thirdDiv.classList.add("card");
+
+		let fourthDiv = document.createElement("div");
+		fourthDiv.classList.add("card-container");
+
+
+		let numeDiv = document.createElement("div");
+		numeDiv.classList.add("nume");
+		numeDiv.innerHTML = elem.Profesor;
+
+		let facDiv = document.createElement("div");
+		facDiv.classList.add("facultate");
+		facDiv.innerHTML = elem.Facultate;
+
+		let anDiv = document.createElement("div");
+		anDiv.classList.add("an");
+		anDiv.innerHTML = elem.An;
+
+		let materieDiv = document.createElement("div");
+		materieDiv.classList.add("materie");
+		materieDiv.innerHTML = elem.Materie;
+
+		let paragraph = document.createElement("p");
+		paragraph.innerHTML = elem.Review;
+
+		let hr = document.createElement("hr");
+
+		fourthDiv.appendChild(numeDiv);
+		fourthDiv.appendChild(hr);
+		fourthDiv.appendChild(facDiv);
+		fourthDiv.appendChild(hr);
+		fourthDiv.appendChild(anDiv);
+		fourthDiv.appendChild(materieDiv);
+		fourthDiv.appendChild(hr);
+		fourthDiv.appendChild(paragraph);
+
+		thirdDiv.appendChild(fourthDiv);
+		secondDiv.appendChild(thirdDiv);
+		secondDiv.appendChild(exit);
+		bigDiv.appendChild(secondDiv);
+		let k = document.getElementById("main-page");
+		if (typeof k !== "undefined") { k.appendChild(bigDiv); }
+
 	})
 };
 
-window.onload=filter();
+window.onload = filter();

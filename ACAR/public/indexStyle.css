@@ -15,9 +15,13 @@ body{
     height: 70px;
 }
 
+.go-button{
+    background-color: #001f3f;
+}
+
 .center-buttons {
     display: inline-block;
-    width: 300px;
+    width: 400px;
     margin: auto;
     position: absolute;
     margin-left: 30px;
@@ -254,12 +258,12 @@ label{
   cursor: pointer;
 }
 
-@media (max-width: 767pxx) {
+@media (max-width: 767px) {
     .dropdown {
         display: block;
     }
     .headerCls {
-        height: 100px;
+        height: 130px;
     }
     .center-buttons {
         top: -10px;
