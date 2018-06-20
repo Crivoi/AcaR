@@ -29,12 +29,12 @@
       a few clicks away from the best source of information "UAIC" has ever had!
     </p>
     <p>
-      ACAR also listens to its users through the MySurvey page, where students can create or answer surveys related to college
-      activities, professors and other studies. By using the Survey page, students are surely getting the most recent and
+      ACAR also listens to its users through the Add Review page, where students can create or answer review related to college
+      activities, professors and other studies. By using the Review page, students are surely getting the most recent and
       updated data they can possibly get from any other source! We cover everything. From usual subjects, to professors,
       schedules and even the day to day life of a student at "UAIC".
     </p>
-    <p>All this being said, we encourage you to roll in today and start doing your own surveys!</p>
+    <p>All this being said, we encourage you to roll in today and start doing your own reviews!</p>
   </main>
 </body>
 
