@@ -61,7 +61,7 @@
 		public function insertSurvey($facultate, $an, $semestru, $materie, $prof, $review){
 			global $conn;
 
-			$result=mysqli_query($conn, "INSERT INTO surveys VALUES ('".$facultate."', '".$an."', '".$semestru."', '".$materie."', '".$prof."', '".$review."')");
+			$result=mysqli_query($conn, "INSERT INTO surveys VALUES ('".$facultate."', '".$an."', '".$semestru."', '".$materie."', '".$prof."', '".$review."',NULL)");
 			return $result;
 		}
 
