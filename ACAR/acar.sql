@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2018 at 11:40 AM
+-- Generation Time: Jun 20, 2018 at 02:03 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -45,7 +45,8 @@ CREATE TABLE `surveys` (
 INSERT INTO `surveys` (`Facultate`, `An`, `Semestru`, `Materie`, `Profesor`, `Review`, `ID`) VALUES
 ('asdasd', 0, 0, 'adsa', 'asda', 'adsa', 1),
 ('asdas', 0, 0, 'asdas', 'asdas', 'asdas', 2),
-('asdas', 0, 0, 'adsa', 'asdsa', 'asdsa', 3);
+('asdas', 0, 0, 'adsa', 'asdsa', 'asdsa', 3),
+('informatica', 2, 2, 'Matematica', 'Tiplea', 'asasavsavsavsdsavsdv', 4);
 
 -- --------------------------------------------------------
 
@@ -55,20 +56,16 @@ INSERT INTO `surveys` (`Facultate`, `An`, `Semestru`, `Materie`, `Profesor`, `Re
 
 CREATE TABLE `users` (
   `username` varchar(30) NOT NULL,
-  `parola` varchar(30) NOT NULL
+  `parola` varchar(65) NOT NULL,
+  `email` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`username`, `parola`) VALUES
-('q', 'q'),
-('q', 'q'),
-('q', 'q'),
-('qre', 'q'),
-('qree', 'q'),
-('Andrei932', 'Andrei932');
+INSERT INTO `users` (`username`, `parola`, `email`) VALUES
+('rafa', '67023cda456b9844abf8a9a3992799093bbfb69f', NULL);
 
 --
 -- Indexes for dumped tables
@@ -88,7 +85,7 @@ ALTER TABLE `surveys`
 -- AUTO_INCREMENT for table `surveys`
 --
 ALTER TABLE `surveys`
-  MODIFY `ID` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

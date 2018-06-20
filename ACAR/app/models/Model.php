@@ -14,7 +14,7 @@
 		public function insertUser($username, $password){
 		    global $conn;
 
-		    $result=mysqli_query($conn,"INSERT INTO `users` ( `username`, `parola`) VALUES ('".$username."','".$password."')");
+		    $result=mysqli_query($conn,"INSERT INTO `users` ( `username`, `parola`) VALUES ('".$username."','".sha1($password)."')");
 		    return $result;
 		}
 
@@ -41,7 +41,7 @@
 		public function getParola($parola){
 			global $conn;
 
-		    $stmt = $conn->prepare("SELECT parola FROM users where parola like '%".$parola . "' ;");
+		    $stmt = $conn->prepare("SELECT parola FROM users where parola like '%".sha1($parola)."' ;");
 
 		    if (false === $stmt ) {
 		        die('prepare() failed: ' . htmlspecialchars($conn->error));
