@@ -15,6 +15,9 @@
         <form class = "register-form-content">
             <text class="register-text">Register</text>
             <p>Fill in this form to sign up to our website!</p>
+            <label for = "email"><b>Email:</b></label>
+            <br>
+            <input type = "text" placeholder = "Enter Email" name = "email" id="email" required>
             <label for = "username"><b>Username:</b></label>
             <br>
             <input type = "text" placeholder = "Enter Username" name = "username" id="user" required>
