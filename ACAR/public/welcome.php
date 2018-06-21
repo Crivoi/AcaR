@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="./indexStyle.css">
   <link rel="stylesheet" type="text/css" href="./public/ionicons-2.0.1/css/ionicons.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>

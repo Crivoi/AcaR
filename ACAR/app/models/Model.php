@@ -38,6 +38,54 @@
 		    }
 		}
 
+		public function makeToken($user)
+		{
+			global $conn;
+			$time = time();
+			$hashString = sha1($user.$time);
+			$stmt = $conn->prepare("INSERT INTO tokens (username, token) VALUES('".$user."','".$hashString."')");
+			if (false === $stmt ) {
+		        die('prepare() failed: ' . htmlspecialchars($conn->error));
+			}
+			$stmt->execute();
+			$result = $stmt -> get_result();
+			return $hashString;
+		}
+
+		public function isTokenValid($token){
+			global $conn;
+			$stmt = $conn->prepare("SELECT * FROM tokens WHERE token=".$token);
+			if (false === $stmt ) {
+		        die('prepare() failed: ' . htmlspecialchars($conn->error));
+			}
+			$stmt->execute();
+			$result = $stmt -> get_result();
+			$rows = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+		    if ($rows == false){
+		    	return 0;
+		    }
+		    else {
+		    	return 1;
+		    }
+		}
+
+		public function deleteToken($token){
+			global $conn;
+			$stmt = $conn->prepare("delete FROM tokens WHERE token='".$token."'");
+			if (false === $stmt ) {
+		        die('prepare() failed: ' . htmlspecialchars($conn->error));
+			}
+			$stmt->execute();
+			$result = $stmt -> get_result();
+			$rows = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+		    if ($rows == false){
+		    	return 0;
+		    }
+		    else {
+		    	return 1;
+		    }
+		}
+
 		public function getParola($parola){
 			global $conn;
 
@@ -58,11 +106,12 @@
 		    }
 		}
 
-		public function insertSurvey($facultate, $an, $semestru, $materie, $prof, $review){
+		public function insertSurvey($facultate, $an, $semestru, $materie, $prof, $review, $token){
 			global $conn;
-
-			$result=mysqli_query($conn, "INSERT INTO surveys VALUES ('".$facultate."', '".$an."', '".$semestru."', '".$materie."', '".$prof."', '".$review."',NULL)");
-			return $result;
+			if($this->isTokenValid($token)){
+				$result=mysqli_query($conn, "INSERT INTO surveys VALUES ('".$facultate."', '".$an."', '".$semestru."', '".$materie."', '".$prof."', '".$review."',NULL)");
+			}
+			return "You need to log in";
 		}
 
 		public function getFilteredSurveys($facultate, $materie, $profesor){

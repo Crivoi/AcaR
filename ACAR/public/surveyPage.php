@@ -43,27 +43,27 @@
 
     <div class="modal" id="modal-one" aria-hidden="true">
         <div class="modal-dialog">
-        <a href="#" class="normal-button-close">×</a>
-        <div class="card">
-            <div class="card-container">
-                <div class="nume">⬛George Buhnici⬛</div>
-                <hr>
-                <div class="facultate">Facultatea de Informatica Iasi</div>
-                <div class="an">Anul 1</div>
-                <div class="materie">Programare avansata</div>
-                <p>◾In acest Survey am incercat sa fac un tutorial despre cum poti face sa treci la materia Programare avansata in restanta.
-                </p>
-                <hr>
-                <p>◾In primul rand cred ca este nevie de multa rabdare pentru a intelege....
-                <br> Mai jos am atasat cateva imagini cu pozele din caietul meu de Programare avansata pentru a avea de unde invata teoria
-                pentru examen.
-                </p>
-                <div class="imagini">
-                <img src="imagini/Img1.jpg" alt="Img1" width="128" height="128">
-                <img src="imagini/Img2.jpg" alt="Img2" width="128" height="128">
-                <img src="imagini/Img3.jpg" alt="Img3" width="128" height="128">
+            <a href="#" class="normal-button-close">×</a>
+            <div class="card">
+                <div class="card-container">
+                    <div class="nume">⬛George Buhnici⬛</div>
+                    <hr>
+                    <div class="facultate">Facultatea de Informatica Iasi</div>
+                    <div class="an">Anul 1</div>
+                    <div class="materie">Programare avansata</div>
+                    <p>◾In acest Survey am incercat sa fac un tutorial despre cum poti face sa treci la materia Programare avansata in restanta.
+                    </p>
+                    <hr>
+                    <p>◾In primul rand cred ca este nevie de multa rabdare pentru a intelege....
+                    <br> Mai jos am atasat cateva imagini cu pozele din caietul meu de Programare avansata pentru a avea de unde invata teoria
+                    pentru examen.
+                    </p>
+                    <div class="imagini">
+                    <img src="imagini/Img1.jpg" alt="Img1" width="128" height="128">
+                    <img src="imagini/Img2.jpg" alt="Img2" width="128" height="128">
+                    <img src="imagini/Img3.jpg" alt="Img3" width="128" height="128">
+                    </div>
                 </div>
-            </div>
             </div>
             <a href="#" class="normal-button"><i class="ion-ios-star-half"></i> Rate This!</a>
             </div>

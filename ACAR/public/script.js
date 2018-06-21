@@ -74,6 +74,13 @@ function Inregistrare() {
 
 
 function filter() {
+	let storage = JSON.parse(localStorage.getItem('currentUser'));
+	console.log(storage)
+	if (storage) {
+		makeLogOutButton(storage.name)
+	} else {
+		makeLogInButton();
+	}
 	let facultate = "%";
 	let profesor = "%";
 	let materie = "%";
@@ -151,9 +158,14 @@ function Logare() {
 				console.log("Success, te-ai conectat");
 				console.log("*" + xhr.response.trim() + "*");
 				console.log(user);
-				if (xhr.response.trim() == user) {
-					console.log("login reusit");
+				if (xhr.response.trim()) {
+					console.log("login reusit", xhr.response.trim());
+					makeLogOutButton(user);
 					window.location.assign('http://localhost:81/ACAR/public/welcome.php');
+					localStorage.setItem('currentUser', JSON.stringify({
+						name: user,
+						token: xhr.response.trim(),
+					}));
 				} else {
 					console.log("Username sau parola incorecte");
 					alert("Username incorect");
@@ -185,6 +197,14 @@ function adaugaSurvey() {
 	var materie = document.getElementById("materie-id").value;
 	var prof = document.getElementById("prof-id").value;
 	var review = document.getElementById("review-id").value;
+	var storage = JSON.parse(localStorage.getItem('currentUser'));
+	var token;
+	if (storage) {
+		token = storage.token;
+	} else {
+		alert("Trebuie sa te loghezi mai intai");
+		window.location.assign('http://localhost:81/ACAR/public/login.php');
+	}
 
 	let xhr = new XMLHttpRequest();
 
@@ -219,7 +239,6 @@ function adaugaSurvey() {
 
 
 function putOnScreen(obj) {
-	console.log("sunt aici");
 	let index = 0;
 	let main = document.getElementById("main");
 	if (typeof main !== "undefined")
@@ -265,7 +284,7 @@ function putOnScreen(obj) {
 		let exit = document.createElement("a");
 		exit.classList.add("normal-button-close");
 		exit.href = "#";
-		exit.innerHTML="x";
+		exit.innerHTML = "x";
 
 		let thirdDiv = document.createElement("div");
 		thirdDiv.classList.add("card");
@@ -313,5 +332,66 @@ function putOnScreen(obj) {
 
 	})
 };
+function makeLogOutButton(name) {
+
+	oldButton = document.getElementById("log_in");
+	if (oldButton) oldButton.remove()
+
+	let main = document.getElementById("right_menu");
+	if (main !== null) {
+		let button = document.createElement("button");
+		button.classList.add("logIn-button");
+		button.id = "log_out";
+		button.innerHTML = "Log Out";
+		button.onclick = function () {
+			let xhr = new XMLHttpRequest();
+			var storage = JSON.parse(localStorage.getItem('currentUser'));
+			var token;
+			if (storage) {
+				console.log(storage)
+				token = storage.token;
+				xhr.open("POST", "http://localhost:81/ACAR/public/Logare/delogin");
+				xhr.addEventListener("load", function loadCallback() {
+					console.log(xhr.response);
+					switch (xhr.status) {
+						case 200:
+							let object = JSON.parse(xhr.response);
+							console.log(object);			
+							break;
+						case 404:
+							console.log("Oups! Not found");
+							break;
+					}
+				});
+				let payload = {
+					token: `${token}`
+				}
+				xhr.send(JSON.stringify(payload));
+			}
+
+			makeLogInButton();
+			localStorage.removeItem('currentUser');;
+
+		};
+		main.appendChild(button);
+
+	}
+}
+
+function makeLogInButton() {
+	oldButton = document.getElementById("log_out");
+	if (oldButton) oldButton.remove()
+	let main = document.getElementById("right_menu");
+	if (main !== null) {
+		let button = document.createElement("button");
+		button.classList.add("logIn-button");
+		button.id = "log_in";
+		button.innerHTML = "Log In";
+		button.onclick = function () {
+			window.location.assign('http://localhost:81/ACAR/public/login.php')
+		};
+		main.appendChild(button);
+	}
+}
 
 window.onload = filter();

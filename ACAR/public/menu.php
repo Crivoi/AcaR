@@ -73,10 +73,10 @@
         </div>
       </div>
     </div>
-    <div class="right-buttons">
+    <div class="right-buttons" id="right_menu">
       <button onclick="window.location.href='./surveyForm.php'" class="survey-button">
         <i class="ion ion-chatbox-working"></i>
       </button>
-      <button onclick="window.location.href='./login.php'" class="logIn-button">Log Out</button>
+      <!-- <button onclick="window.location.href='./login.php'" id="log_in" class="logIn-button">Log In</button> -->
     </div>
   </header>

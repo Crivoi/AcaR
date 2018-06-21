@@ -18,30 +18,32 @@ session_start();
  		
  		$resultuser = $modelcon->getUser($user);
 		$resultpassword = $modelcon->getParola($parola);
-
  		if ($resultuser == 1){
 
  			if ($resultpassword == 1){
- 				$_SESSION['user'] = $user;
- 				echo $_SESSION['user'];
+				 $token = $modelcon->makeToken($user);
+				 $_SESSION['token'] = $token ;
+ 				echo $_SESSION['token'];
  			} else {
  				echo "Parola incorecta";
  			}
  		} else {
  			echo "User incorect ";
  		}
- 	}
+	 }
 
  	public function delogin(){
 
  		$modelcon = $this->model('Model');
 
  		$jsonData = file_get_contents('php://input');
- 		$jsonData = json_decode($jsonData);
- 		
+		$jsonData = json_decode($jsonData);
+		$token = $jsonData->token;
+
+ 		$result = $modelcon->deleteToken($token);
  		unset($_SESSION['user']);
  		session_destroy();
- 		echo "delogin";
+ 		echo $result;
  	}
  }
 
