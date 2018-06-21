@@ -11,7 +11,8 @@ deja disponibile din anii anteriori plus statistici anonime privind notele obtin
 
 # Video de prezentare
 
-[![](http://img.youtube.com/vi/D3LVxN3aYB8/0.jpg)](https://www.youtube.com/watch?v=S5s-P41CkWg&feature=youtu.be "Academic Recommender ")
+[![](http://img.youtube.com/vi/S5s-P41CkWg/0.jpg)](http://www.youtube.com/watch?v=S5s-P41CkWg "")
+
 
 
 
