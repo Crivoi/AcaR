@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2018 at 06:19 PM
+-- Generation Time: Jun 21, 2018 at 10:30 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -36,16 +36,10 @@ CREATE TABLE `surveys` (
   `Profesor` varchar(20) NOT NULL,
   `Review` varchar(10000) NOT NULL,
   `ID` mediumint(9) NOT NULL,
-  `path_img` varchar(200) DEFAULT NULL
+  `path_img` varchar(200) DEFAULT NULL,
+  `rating` float DEFAULT NULL,
+  `numarVoturi` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `surveys`
---
-
-INSERT INTO `surveys` (`Facultate`, `An`, `Semestru`, `Materie`, `Profesor`, `Review`, `ID`, `path_img`) VALUES
-('Facultatea de Informatica Iasi', 'Anul 1', 'Semestru 1', 'Arhitectura Calculatoarelor si Sistemelor de operare', 'Vlad Radulescu', 'Acest review este legat demateria acso', 12, '230243'),
-('aaa', 'aaa', 'aaa', 'aaa', 'Ciobaca', 'aaa', 13, '695724');
 
 -- --------------------------------------------------------
 
@@ -58,6 +52,13 @@ CREATE TABLE `users` (
   `parola` varchar(65) NOT NULL,
   `email` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`username`, `parola`, `email`) VALUES
+('a', '86f7e437faa5a7fce15d1ddcb9eaeaea377667b8', 'a');
 
 --
 -- Indexes for dumped tables
