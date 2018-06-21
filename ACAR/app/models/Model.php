@@ -61,7 +61,7 @@
 		public function insertSurvey($facultate, $an, $semestru, $materie, $prof, $review,$target_path){
 			global $conn;
 
-			$result=mysqli_query($conn, "INSERT INTO surveys VALUES ('".$facultate."', '".$an."', '".$semestru."', '".$materie."', '".$prof."', '".$review."',NULL,'".$target_path."')");
+			$result=mysqli_query($conn, "INSERT INTO surveys VALUES ('".$facultate."', '".$an."', '".$semestru."', '".$materie."', '".$prof."', '".$review."',NULL,'".$target_path."',0,0)");
 			return $result;
 		}
 
@@ -78,5 +78,34 @@
 		    mysqli_free_result($result);
 		    return $rows;
 		}
+
+		public function insertRating($id,$valoareaNotei)
+		{
+			global $conn;
+			$result=mysqli_query($conn, "UPDATE surveys set rating=((rating*numarVoturi)+$valoareNotei)/(numarVoturi+1) and numarVoturi=numarVoturi+1 where ID like '".$id."' ;");
+			return $result;
+		}
+
+		public function getRating($id)
+		{
+			global $conn;
+
+		    $stmt = $conn->prepare("SELECT rating FROM surveys where ID like '".$id."' ;");
+
+		    if (false === $stmt ) {
+		        die('prepare() failed: ' . htmlspecialchars($conn->error));
+		    }
+
+		    $stmt->execute();
+		    $result = $stmt -> get_result();
+		    $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+		    if ($rows == false){
+		    	return 0;
+		    }
+		    else {
+		    	return 1;
+		    }
+		}
+
 	}
 ?>
