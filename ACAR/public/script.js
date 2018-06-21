@@ -3,6 +3,7 @@ function Inregistrare() {
 	var par1 = document.getElementById("psw").value;
 	var par2 = document.getElementById("psw-repeat").value;
 	var username = document.getElementById("user").value;
+	var email=document.getElementById("email").value;
 
 	let xhr = new XMLHttpRequest();
 
@@ -48,7 +49,8 @@ function Inregistrare() {
 
 						let payload = {
 							username: `${username}`,
-							pass: `${par1}`
+							pass: `${par1}`,
+							email:`${email}`
 						}
 						xhr2.send(JSON.stringify(payload));
 					}

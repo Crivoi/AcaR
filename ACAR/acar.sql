@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2018 at 03:37 PM
+-- Generation Time: Jun 21, 2018 at 06:19 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -29,12 +29,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `surveys` (
-  `Facultate` varchar(20) NOT NULL,
-  `An` int(11) NOT NULL,
-  `Semestru` int(11) NOT NULL,
-  `Materie` varchar(20) NOT NULL,
+  `Facultate` varchar(80) NOT NULL,
+  `An` varchar(20) NOT NULL,
+  `Semestru` varchar(20) NOT NULL,
+  `Materie` varchar(80) NOT NULL,
   `Profesor` varchar(20) NOT NULL,
-  `Review` varchar(1000) NOT NULL,
+  `Review` varchar(10000) NOT NULL,
   `ID` mediumint(9) NOT NULL,
   `path_img` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -44,11 +44,8 @@ CREATE TABLE `surveys` (
 --
 
 INSERT INTO `surveys` (`Facultate`, `An`, `Semestru`, `Materie`, `Profesor`, `Review`, `ID`, `path_img`) VALUES
-('informatica', 2, 2, 'Matematica', 'Tiplea', 'asasavsavsavsdsavsdv', 4, NULL),
-('a', 0, 0, 'a', 'a', 'a', 6, NULL),
-('a', 0, 0, 'a', 'a', 'a', 7, '800373'),
-('a', 0, 0, 'a', 'a', 'asda', 8, '386339'),
-('zz', 0, 0, 'sdsa', 'asdasa', 'sdas', 9, '939018');
+('Facultatea de Informatica Iasi', 'Anul 1', 'Semestru 1', 'Arhitectura Calculatoarelor si Sistemelor de operare', 'Vlad Radulescu', 'Acest review este legat demateria acso', 12, '230243'),
+('aaa', 'aaa', 'aaa', 'aaa', 'Ciobaca', 'aaa', 13, '695724');
 
 -- --------------------------------------------------------
 
@@ -61,13 +58,6 @@ CREATE TABLE `users` (
   `parola` varchar(65) NOT NULL,
   `email` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`username`, `parola`, `email`) VALUES
-('rafa', '67023cda456b9844abf8a9a3992799093bbfb69f', NULL);
 
 --
 -- Indexes for dumped tables
@@ -87,7 +77,7 @@ ALTER TABLE `surveys`
 -- AUTO_INCREMENT for table `surveys`
 --
 ALTER TABLE `surveys`
-  MODIFY `ID` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

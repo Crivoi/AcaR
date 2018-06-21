@@ -11,10 +11,10 @@
 
 		}
 		
-		public function insertUser($username, $password){
+		public function insertUser($username, $password,$email){
 		    global $conn;
 
-		    $result=mysqli_query($conn,"INSERT INTO `users` ( `username`, `parola`) VALUES ('".$username."','".sha1($password)."')");
+		    $result=mysqli_query($conn,"INSERT INTO `users` ( `username`, `parola`,`email`) VALUES ('".$username."','".sha1($password)."','".$email."')");
 		    return $result;
 		}
 

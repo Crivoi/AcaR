@@ -24,19 +24,19 @@
         <form style="margin:auto">
             <br>
             <p class="facultate">Introduceti Facultatea</p>
-            <input type="text" maxlength="50" id = "facultate-id">
+            <input type="text" maxlength="150" id = "facultate-id">
             <br/>
             <p class="an">Introduceti Anul</p>
-            <input type="text" maxlength="50" id = "an-id">
+            <input type="text" maxlength="150" id = "an-id">
             <br/>
             <p class="semestru">Introduceti Semestrul</p>
-            <input type="text" maxlength="50" id = "semestru-id">
+            <input type="text" maxlength="150" id = "semestru-id">
             <br/>
             <p class="materie">Introduceti Materia</p>
-            <input type="text" maxlength="25" id = "materie-id">
+            <input type="text" maxlength="125" id = "materie-id">
             <br/>
             <p class="profesor">Introduceti Profesorul</p>
-            <input type="text" maxlength="25" id = "prof-id">
+            <input type="text" maxlength="125" id = "prof-id">
             <br/>
             <p class="review">Introduceti review-ul</p>
             <textarea name="subject" style="height:100px" id = "review-id"></textarea>
