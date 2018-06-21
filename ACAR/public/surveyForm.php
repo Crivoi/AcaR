@@ -41,6 +41,10 @@
             <p class="review">Introduceti review-ul</p>
             <textarea name="subject" style="height:100px" id = "review-id"></textarea>
             <br/>
+            <p>Introduceti imagini</p>
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <br/>
+            <br/>
             <button type="button" class="submit" onclick="adaugaSurvey()" id = "submit-btn-id">Submit</button>
         </form>
 </body>

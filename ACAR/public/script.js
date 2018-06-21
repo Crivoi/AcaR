@@ -185,7 +185,7 @@ function adaugaSurvey() {
 	var materie = document.getElementById("materie-id").value;
 	var prof = document.getElementById("prof-id").value;
 	var review = document.getElementById("review-id").value;
-
+	var fileToUpload = document.getElementById("fileToUpload").value;
 	let xhr = new XMLHttpRequest();
 
 	xhr.open("POST", "http://localhost:81/ACAR/public/PostSurvey/verificaSurvey");
@@ -210,7 +210,8 @@ function adaugaSurvey() {
 		semestru: `${semestru}`,
 		materie: `${materie}`,
 		prof: `${prof}`,
-		review: `${review}`
+		review: `${review}`,
+		fileToUpload:`${fileToUpload}`
 	}
 
 	xhr.send(JSON.stringify(payload));

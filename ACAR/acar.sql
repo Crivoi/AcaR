@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2018 at 02:03 PM
+-- Generation Time: Jun 21, 2018 at 03:37 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -35,18 +35,20 @@ CREATE TABLE `surveys` (
   `Materie` varchar(20) NOT NULL,
   `Profesor` varchar(20) NOT NULL,
   `Review` varchar(1000) NOT NULL,
-  `ID` mediumint(9) NOT NULL
+  `ID` mediumint(9) NOT NULL,
+  `path_img` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `surveys`
 --
 
-INSERT INTO `surveys` (`Facultate`, `An`, `Semestru`, `Materie`, `Profesor`, `Review`, `ID`) VALUES
-('asdasd', 0, 0, 'adsa', 'asda', 'adsa', 1),
-('asdas', 0, 0, 'asdas', 'asdas', 'asdas', 2),
-('asdas', 0, 0, 'adsa', 'asdsa', 'asdsa', 3),
-('informatica', 2, 2, 'Matematica', 'Tiplea', 'asasavsavsavsdsavsdv', 4);
+INSERT INTO `surveys` (`Facultate`, `An`, `Semestru`, `Materie`, `Profesor`, `Review`, `ID`, `path_img`) VALUES
+('informatica', 2, 2, 'Matematica', 'Tiplea', 'asasavsavsavsdsavsdv', 4, NULL),
+('a', 0, 0, 'a', 'a', 'a', 6, NULL),
+('a', 0, 0, 'a', 'a', 'a', 7, '800373'),
+('a', 0, 0, 'a', 'a', 'asda', 8, '386339'),
+('zz', 0, 0, 'sdsa', 'asdasa', 'sdas', 9, '939018');
 
 -- --------------------------------------------------------
 
@@ -85,7 +87,7 @@ ALTER TABLE `surveys`
 -- AUTO_INCREMENT for table `surveys`
 --
 ALTER TABLE `surveys`
-  MODIFY `ID` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

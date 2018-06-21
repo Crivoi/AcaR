@@ -58,10 +58,10 @@
 		    }
 		}
 
-		public function insertSurvey($facultate, $an, $semestru, $materie, $prof, $review){
+		public function insertSurvey($facultate, $an, $semestru, $materie, $prof, $review,$target_path){
 			global $conn;
 
-			$result=mysqli_query($conn, "INSERT INTO surveys VALUES ('".$facultate."', '".$an."', '".$semestru."', '".$materie."', '".$prof."', '".$review."',NULL)");
+			$result=mysqli_query($conn, "INSERT INTO surveys VALUES ('".$facultate."', '".$an."', '".$semestru."', '".$materie."', '".$prof."', '".$review."',NULL,'".$target_path."')");
 			return $result;
 		}
 
