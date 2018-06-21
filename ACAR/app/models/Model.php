@@ -11,10 +11,10 @@
 
 		}
 		
-		public function insertUser($username, $password){
+		public function insertUser($username, $password,$email){
 		    global $conn;
 
-		    $result=mysqli_query($conn,"INSERT INTO `users` ( `username`, `parola`) VALUES ('".$username."','".sha1($password)."')");
+		    $result=mysqli_query($conn,"INSERT INTO `users` ( `username`, `parola`,`email`) VALUES ('".$username."','".sha1($password)."','".$email."')");
 		    return $result;
 		}
 
@@ -109,7 +109,7 @@
 		public function insertSurvey($facultate, $an, $semestru, $materie, $prof, $review, $token){
 			global $conn;
 			if($this->isTokenValid($token)){
-				$result=mysqli_query($conn, "INSERT INTO surveys VALUES ('".$facultate."', '".$an."', '".$semestru."', '".$materie."', '".$prof."', '".$review."',NULL)");
+				$result=mysqli_query($conn, "INSERT INTO surveys VALUES ('".$facultate."', '".$an."', '".$semestru."', '".$materie."', '".$prof."', '".$review."',NULL,'".$target_path."')");
 			}
 			return "You need to log in";
 		}

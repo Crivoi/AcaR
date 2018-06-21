@@ -12,9 +12,10 @@
  		$jsonData = json_decode($jsonData);
 
  		$username = $jsonData->username;
- 		$password = $jsonData->pass;
+		 $password = $jsonData->pass;
+		 $email=$jsonData->email;
  		
- 		$result = $modelcon -> insertUser($username, $password);
+ 		$result = $modelcon -> insertUser($username, $password,$email);
 
  	}
  }
