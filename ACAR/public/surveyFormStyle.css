@@ -31,10 +31,7 @@ textarea{
     border-top: 1px solid grey;
     padding: 0 8px;
 }
-form [type=file]{
-    margin-left:20%;
-    margin-top:5%;
-}
+
 form input[type=text] {
     margin-left:20%;
     margin-top:5%;
@@ -45,7 +42,6 @@ form input[type=text] {
     border: 1px solid black;
     border-top: 1px solid grey;
     padding: 0 8px;
-    size:135;
 }
 
 form input[type=text]:hover {

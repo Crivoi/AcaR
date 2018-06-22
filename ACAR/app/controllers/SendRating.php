@@ -13,8 +13,11 @@
  		$jsonData = json_decode($jsonData);
  		
          $id = $jsonData->id;
-         $valoareaNotei=$jsonData->valoareaNotei;
- 		$result = $modelcon->insertRating($id,$valoareaNotei);
+		 $valoareaNoteiNoi=$jsonData->valoareaNoteiNoi;
+		 $numarVoturi=$jsonData->numarVoturi;
+		 $valoareaNoteiVechi=$jsonData->valoareaNoteiVechi;
+
+ 		$result = $modelcon->insertRating($id,$valoareaNoteiNoi, $valoareaNoteiVechi, $numarVoturi);
 
  		echo $result;
 

@@ -11,10 +11,10 @@
 
 		}
 		
-		public function insertUser($username, $password,$email){
+		public function insertUser($username, $password){
 		    global $conn;
 
-		    $result=mysqli_query($conn,"INSERT INTO `users` ( `username`, `parola`,`email`) VALUES ('".$username."','".sha1($password)."','".$email."')");
+		    $result=mysqli_query($conn,"INSERT INTO `users` ( `username`, `parola`) VALUES ('".$username."','".sha1($password)."')");
 		    return $result;
 		}
 
@@ -54,7 +54,7 @@
 
 		public function isTokenValid($token){
 			global $conn;
-			$stmt = $conn->prepare("SELECT * FROM tokens WHERE token=".$token);
+			$stmt = $conn->prepare("SELECT * FROM tokens WHERE token='".$token."'");
 			if (false === $stmt ) {
 		        die('prepare() failed: ' . htmlspecialchars($conn->error));
 			}
@@ -109,7 +109,7 @@
 		public function insertSurvey($facultate, $an, $semestru, $materie, $prof, $review, $token){
 			global $conn;
 			if($this->isTokenValid($token)){
-				$result=mysqli_query($conn, "INSERT INTO surveys VALUES ('".$facultate."', '".$an."', '".$semestru."', '".$materie."', '".$prof."', '".$review."',NULL,'".$target_path."',0,0)");
+				$result=mysqli_query($conn, "INSERT INTO surveys VALUES ('".$facultate."', '".$an."', '".$semestru."', '".$materie."', '".$prof."', '".$review."','NULL', 'ss', '0', '0')");
 			}
 			return "You need to log in";
 		}
@@ -128,10 +128,12 @@
 		    return $rows;
 		}
 
-		public function insertRating($id,$valoareaNotei)
+		public function insertRating($id,$valoareaNoteiNoi, $valoareaNoteiVechi, $numarVoturi)
 		{
 			global $conn;
-			$result=mysqli_query($conn, "UPDATE surveys set rating=((rating*numarVoturi)+$valoareNotei)/(numarVoturi+1) and numarVoturi=numarVoturi+1 where ID like '".$id."' ;");
+			$newRating=(($valoareaNoteiVechi*$numarVoturi)+$valoareaNoteiNoi)/($numarVoturi+1);
+			//echo $newRating;
+			$result=mysqli_query($conn, "UPDATE surveys set rating=ROUND(".$newRating.", 2) and numarVoturi=numarVoturi+1 where ID = '".$id."' ;");
 			return $result;
 		}
 
@@ -155,6 +157,5 @@
 		    	return 1;
 		    }
 		}
-
 	}
 ?>

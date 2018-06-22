@@ -125,12 +125,17 @@ h1 {
 p {
   margin-bottom: 20px;
 }
+
+.input-button{
+  float: right;
+}
+
 .normal-button {
   background: #428bca;
   border: #357ebd solid 1px;
   border-radius: 3px;
   color: #fff;
-  display: inline-block;
+  display: flex;
   font-size: 14px;
   padding: 8px 15px;
   text-decoration: none;
@@ -140,6 +145,7 @@ p {
   transition: color .1s ease;
   margin: 10px;
   margin-left: 10%;
+  float: right;
 }
 .normal-button:hover {
   background: #357ebd;

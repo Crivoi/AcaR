@@ -3,7 +3,6 @@ function Inregistrare() {
 	var par1 = document.getElementById("psw").value;
 	var par2 = document.getElementById("psw-repeat").value;
 	var username = document.getElementById("user").value;
-	var email=document.getElementById("email").value;
 
 	let xhr = new XMLHttpRequest();
 
@@ -49,8 +48,7 @@ function Inregistrare() {
 
 						let payload = {
 							username: `${username}`,
-							pass: `${par1}`,
-							email:`${email}`
+							pass: `${par1}`
 						}
 						xhr2.send(JSON.stringify(payload));
 					}
@@ -208,7 +206,6 @@ function adaugaSurvey() {
 		window.location.assign('http://localhost:81/ACAR/public/login.php');
 	}
 
-	var fileToUpload = document.getElementById("fileToUpload").value;
 	let xhr = new XMLHttpRequest();
 
 	xhr.open("POST", "http://localhost:81/ACAR/public/PostSurvey/verificaSurvey");
@@ -234,7 +231,7 @@ function adaugaSurvey() {
 		materie: `${materie}`,
 		prof: `${prof}`,
 		review: `${review}`,
-		fileToUpload:`${fileToUpload}`
+		token: `${token}`
 	}
 
 	xhr.send(JSON.stringify(payload));
@@ -317,6 +314,48 @@ function putOnScreen(obj) {
 		paragraph.innerHTML = elem.Review;
 
 		let hr = document.createElement("hr");
+		
+		let rateThis = document.createElement("input");
+		rateThis.setAttribute("type", "number");
+		rateThis.setAttribute("min", 1);
+		rateThis.setAttribute("max", 5);
+		rateThis.value = elem.rating;
+		let rateThisLabel = document.createElement("button");
+		rateThisLabel.innerHTML = "Rate This! (1-5)";
+		rateThisLabel.classList.add("normal-button");
+		
+		rateThisLabel.onclick = function () {
+			let xhr = new XMLHttpRequest();
+			xhr.open("POST", "http://localhost:81/ACAR/public/SendRating/trimiteRating");
+				xhr.addEventListener("load", function loadCallback() {
+					console.log(xhr.response);
+					switch (xhr.status) {
+						case 200:
+							let object = JSON.parse(xhr.response);
+							console.log(object);			
+							break;
+						case 404:
+							console.log("Oups! Not found");
+							break;
+					}
+				});
+				console.log(elem)
+				let payload = {
+					id: `${elem.ID}`,
+					valoareaNoteiNoi: `${rateThis.value}`,
+					numarVoturi: `${elem.numarVoturi}`,
+					valoareaNoteiVechi: `${elem.rating}`,
+
+				}
+				console.log(payload)
+				xhr.send(JSON.stringify(payload));
+		}
+
+		let father = document.createElement("div");
+		father.classList.add("normal-button");
+		father.appendChild(rateThis);
+		father.appendChild(rateThisLabel);
+		
 
 		fourthDiv.appendChild(numeDiv);
 		fourthDiv.appendChild(hr);
@@ -329,6 +368,7 @@ function putOnScreen(obj) {
 
 		thirdDiv.appendChild(fourthDiv);
 		secondDiv.appendChild(thirdDiv);
+		secondDiv.appendChild(father);
 		secondDiv.appendChild(exit);
 		bigDiv.appendChild(secondDiv);
 		let k = document.getElementById("main-page");

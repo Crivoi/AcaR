@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2018 at 10:30 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Jun 22, 2018 at 10:02 AM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -41,6 +41,32 @@ CREATE TABLE `surveys` (
   `numarVoturi` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `surveys`
+--
+
+INSERT INTO `surveys` (`Facultate`, `An`, `Semestru`, `Materie`, `Profesor`, `Review`, `ID`, `path_img`, `rating`, `numarVoturi`) VALUES
+('informatica', '2', '2', 'informatica ', 'patrut', 'asd', 1, 'ss', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tokens`
+--
+
+CREATE TABLE `tokens` (
+  `username` varchar(30) NOT NULL,
+  `token` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tokens`
+--
+
+INSERT INTO `tokens` (`username`, `token`) VALUES
+('ss', '4848229df9243888f8a70e96ce6f0a4ac0e1a299'),
+('ss', 'b5ec28a4fe76d4220f0a4a5f304992ac0cc82cf0');
+
 -- --------------------------------------------------------
 
 --
@@ -58,7 +84,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`username`, `parola`, `email`) VALUES
-('a', '86f7e437faa5a7fce15d1ddcb9eaeaea377667b8', 'a');
+('rafa', '67023cda456b9844abf8a9a3992799093bbfb69f', NULL),
+('ss', 'c1c93f88d273660be5358cd4ee2df2c2f3f0e8e7', NULL);
 
 --
 -- Indexes for dumped tables
@@ -78,7 +105,7 @@ ALTER TABLE `surveys`
 -- AUTO_INCREMENT for table `surveys`
 --
 ALTER TABLE `surveys`
-  MODIFY `ID` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
